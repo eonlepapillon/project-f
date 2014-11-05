@@ -6,45 +6,35 @@
         y = position.y;
 
       this.step = function(){
-        var direction = Math.floor(Math.random() * 4),
+        var direction = Math.random(),
         screenH = canvas.height,
           screenW = canvas.width;
 
-        switch(direction){
-          case 0:
+        if(direction < 0.4){
             x -= 2;
 
             if(x < 0){
               x = screenW;
             }
-
-            break;
-          case 1:
+        } else if(direction < 0.7){
             x += 2;
 
             if(x >= screenW){
               x = 0;
             }
-
-            break;
-          case 2:
+        } else if(direction < 0.9){
             y -= 2;
 
             if(y < 0){
               y = screenH;
             }
-
-            break;
-          case 3:
+        } else {
             y += 2;
 
             if(y >= screenH){
               y = 0;
             }
-
-            break;
         }
-
       };
 
       function getRandomColor () {
